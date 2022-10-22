@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2009 SpringSource, Inc.
  * Copyright (c) 2009 VMware, Inc.
  *
@@ -176,12 +176,12 @@ HRESULT WMI::GetProcStringProperty(DWORD pid, TCHAR *name, TCHAR *value, DWORD l
 
 HRESULT WMI::GetProcExecutablePath(DWORD pid, TCHAR *value)
 {
-    return GetProcStringProperty(pid, L"ExecutablePath", value, MAX_PATH);
+    return GetProcStringProperty(pid, (TCHAR*)L"ExecutablePath", value, MAX_PATH);
 }
 
 HRESULT WMI::GetProcCommandLine(DWORD pid, TCHAR *value)
 {
-    return GetProcStringProperty(pid, L"CommandLine", value, SIGAR_CMDLINE_MAX);
+    return GetProcStringProperty(pid, (TCHAR*)L"CommandLine", value, SIGAR_CMDLINE_MAX);
 }
 
 /* in peb.c */

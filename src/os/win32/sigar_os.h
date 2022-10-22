@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2004-2009 Hyperic, Inc.
  * Copyright (c) 2009 SpringSource, Inc.
  * Copyright (c) 2009-2010 VMware, Inc.
@@ -24,8 +24,10 @@
 #endif
 
 #ifdef MSVC
+#ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
-#define snprintf _snprintf
+#endif
+//#define snprintf _snprintf
 #if _MSC_VER <= 1200
 #define SIGAR_USING_MSC6 /* Visual Studio version 6 */
 #define HAVE_MIB_IPADDRROW_WTYPE 0

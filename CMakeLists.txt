@@ -1,6 +1,6 @@
-PROJECT(sigar C)
+﻿PROJECT(sigar C)
 
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.15)
 
 INCLUDE(CheckIncludeFiles)
 INCLUDE(CheckFunctionExists)
@@ -18,6 +18,17 @@ SET(CPACK_PACKAGE_VENDOR "Hyperic")
 INCLUDE(CPack)
 
 IF(WIN32) 
+	IF(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+		add_compile_options (
+			/wd5103#关闭宏展开警告
+			/wd4133#关闭类型转换警告
+			/wd4293#关闭左移警告
+			/wd4090#关闭const警告
+			/wd4311#关闭指针截断警告
+
+		)
+	ENDIF(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+
 	## make sure we only use the smallest set of 
 	## headers on win32. Otherwise we get clashes 
 	## between winsock2.h and winsock.h
