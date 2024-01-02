@@ -68,11 +68,11 @@ int WMI::GetLastError()
     switch (result) {
       case S_OK:
         return ERROR_SUCCESS;
-      case WBEM_E_NOT_FOUND:
+      case (HRESULT)WBEM_E_NOT_FOUND:
         return ERROR_NOT_FOUND;
-      case WBEM_E_ACCESS_DENIED:
+      case (HRESULT)WBEM_E_ACCESS_DENIED:
         return ERROR_ACCESS_DENIED;
-      case WBEM_E_NOT_SUPPORTED:
+      case (HRESULT)WBEM_E_NOT_SUPPORTED:
         return SIGAR_ENOTIMPL;
       default:
         return ERROR_INVALID_FUNCTION;
