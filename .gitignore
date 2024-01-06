@@ -40,3 +40,6 @@ config.guess*
 bindings/java/${dist}
 bindings/python/build
 cmake-*/**
+.idea/**
+.vs/**
+[Oo]ut/**
